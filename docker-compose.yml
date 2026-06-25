@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  # Broker MQTT Mosquitto: Ultra ligero para mensajería industrial
+  mqtt-broker:
+    image: eclipse-mosquitto:latest
+    container_name: broker_mosquitto_i40
+    ports:
+      - "1884:1883"      # Puerto estándar MQTT sin encriptar
+      - "9001:9001"      # Puerto para WebSockets (útil para HMIs web)
+    volumes:
+      # Configuración básica para permitir conexiones externas sin contraseña (entorno de desarrollo)
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: always
