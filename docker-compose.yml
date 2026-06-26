@@ -1,14 +1,25 @@
 version: '3.8'
 
 services:
-  # Broker MQTT Mosquitto: Ultra ligero para mensajería industrial
+  # Broker MQTT Mosquitto
   mqtt-broker:
     image: eclipse-mosquitto:latest
     container_name: broker_mosquitto_i40
     ports:
-      - "1884:1883"      # Puerto estándar MQTT sin encriptar
-      - "9001:9001"      # Puerto para WebSockets (útil para HMIs web)
+      - "1884:1883"      # Mapeo para coexistir con ThingsBoard
+      - "9001:9001"
     volumes:
-      # Configuración básica para permitir conexiones externas sin contraseña (entorno de desarrollo)
       - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: always
+
+  # Node-RED: Motor de flujos y visualización industrial
+  node-red:
+    image: nodered/node-red:latest
+    container_name: nodered_i40
+    environment:
+      - TZ=America/Bogota # Ajusta tu zona horaria si es necesario
+    ports:
+      - "1880:1880"      # Puerto estándar para acceder al panel de diseño web
+    volumes:
+      - ./node_red_data:/data # Guarda tus flujos de forma segura en tu disco duro
     restart: always
