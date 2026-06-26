@@ -1,7 +1,7 @@
 # Portafolio de Ingeniería Mecatrónica - Industria 4.0
 ¡Bienvenido a mi repositorio de desarrollo e investigación! Soy Ingeniero Mecatrónico recién egresado, enfocado en la convergencia de la automatización industrial, el Internet de las Cosas (IIoT) y la analítica de datos.
 
-Este espacio compendia un plan de entrenamiento intensivo de 12 semanas diseñado para implementar soluciones de la Industria 4.0 y prepararme para estudios avanzados de Maestría (R&D).
+Este espacio compendia un plan de entrenamiento intensivo diseñado para implementar soluciones de la Industria 4.0 y prepararme para estudios avanzados de Maestría (R&D).
 
 ## 📂 Estructura del Repositorio
 
